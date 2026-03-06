@@ -1,0 +1,51 @@
+.about-section { padding:100px 40px; }
+.about-inner {
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;
+}
+
+/* Text */
+.story { font-size:1.05rem; color:var(--text-dim); line-height:1.9; margin-bottom:18px; font-weight:300; }
+.story strong { color:var(--gold); font-weight:600; }
+
+/* Chef card */
+.chef-card {
+  display:flex; gap:18px; align-items:center;
+  padding:22px; background:var(--navy-card); border:1px solid var(--border);
+  border-radius:var(--radius); margin-top:28px;
+}
+.chef-avatar img { width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold); }
+.chef-title { font-family:'Cinzel',serif; font-size:0.68rem; color:var(--gold); letter-spacing:2px; text-transform:uppercase; margin-bottom:4px; }
+.chef-info h4 { font-family:'Playfair Display',serif; font-size:1.2rem; margin-bottom:6px; }
+.chef-info p  { font-size:0.88rem; color:var(--text-dim); line-height:1.5; }
+
+/* Awards */
+.awards { display:flex; gap:24px; margin-top:24px; flex-wrap:wrap; }
+.award-item {
+  display:flex; align-items:center; gap:8px;
+  font-family:'Cinzel',serif; font-size:0.72rem; letter-spacing:1.5px; color:var(--gold);
+  padding:8px 16px; border:1px solid var(--border); border-radius:24px;
+}
+.award-item i { font-size:0.8rem; }
+
+/* Gallery */
+.about-gallery {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;
+  gap:14px; height:520px;
+}
+.gallery-img { border-radius:var(--radius-sm); overflow:hidden; border:1px solid var(--border); transition:var(--transition); }
+.gallery-img:hover { transform:scale(1.02); border-color:var(--gold); }
+.gallery-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; }
+.gallery-img:hover img { transform:scale(1.06); }
+.gallery-main { grid-row:span 2; }
+
+@media(max-width:1024px) {
+  .about-inner { grid-template-columns:1fr; gap:50px; }
+  .about-gallery { height:320px; }
+}
+@media(max-width:768px) {
+  .about-section { padding:70px 20px; }
+  .about-gallery { height:260px; gap:10px; }
+}

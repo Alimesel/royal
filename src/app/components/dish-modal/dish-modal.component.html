@@ -1,0 +1,66 @@
+<div class="modal-overlay" [class.open]="isOpen" (click)="onOverlayClick($event)">
+  <div class="modal" *ngIf="dish">
+    <button class="modal-close" (click)="close()"><i class="fas fa-times"></i></button>
+
+    <!-- Hero image -->
+    <div class="modal-img">
+      <img [src]="dish.image" [alt]="dish.name" />
+      <div class="modal-img-overlay"></div>
+      <div class="modal-price-float">${{ dish.price }}</div>
+    </div>
+
+    <div class="modal-body">
+      <!-- Header -->
+      <div class="modal-header">
+        <div>
+          <span class="modal-cat">{{ dish.cat }}</span>
+          <h2 class="modal-title">{{ dish.name }}</h2>
+        </div>
+      </div>
+
+      <!-- Rating -->
+      <div class="modal-rating">
+        <i *ngFor="let filled of stars" [class]="filled ? 'fas fa-star' : 'far fa-star'"></i>
+        <span>{{ dish.rating }} · {{ dish.reviews }} reviews</span>
+      </div>
+
+      <!-- Description -->
+      <p class="modal-desc">{{ dish.desc }}</p>
+
+      <!-- Ingredients -->
+      <div class="modal-section-title">
+        <i class="fas fa-seedling"></i> Ingredients
+      </div>
+      <div class="modal-ingredients">
+        <span *ngFor="let ing of dish.ingredients" class="ing-tag">{{ ing }}</span>
+      </div>
+
+      <!-- Allergens -->
+      <div *ngIf="dish.allergens.length" class="modal-section-title">
+        <i class="fas fa-exclamation-triangle"></i> Allergens
+      </div>
+      <div *ngIf="dish.allergens.length" class="modal-allergens">
+        <div *ngFor="let a of allergenData" class="allergen-badge">
+          <i [class]="a.icon"></i>
+          <span>{{ a.label }}</span>
+        </div>
+      </div>
+
+      <!-- Nutrition -->
+      <div class="modal-section-title">
+        <i class="fas fa-chart-pie"></i> Nutrition Per Serving
+      </div>
+      <div class="modal-nutrition" *ngIf="nutrition as n">
+        <div class="n-item"><span class="n-val">{{ n.calories }}</span><div class="n-lbl">Calories</div></div>
+        <div class="n-item"><span class="n-val">{{ n.protein }}</span><div class="n-lbl">Protein</div></div>
+        <div class="n-item"><span class="n-val">{{ n.fat }}</span><div class="n-lbl">Fat</div></div>
+        <div class="n-item"><span class="n-val">{{ n.carbs }}</span><div class="n-lbl">Carbs</div></div>
+      </div>
+
+      <!-- CTA -->
+      <button class="modal-add-btn" (click)="addToCart()">
+        <i class="fas fa-plus"></i> Add to Order — ${{ dish.price }}
+      </button>
+    </div>
+  </div>
+</div>

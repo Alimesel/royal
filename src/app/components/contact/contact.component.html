@@ -1,0 +1,105 @@
+<section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <div class="section-header reveal">
+      <div class="section-label">Find Us</div>
+      <h2 class="section-title">Visit &amp; <em>Reserve</em></h2>
+      <div class="section-divider">
+        <div class="divider-line"></div>
+        <span class="divider-diamond">✦</span>
+        <div class="divider-line right"></div>
+      </div>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Info cards -->
+      <div class="info-col">
+        <div class="contact-card reveal">
+          <div class="cc-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>Address</h4>
+            <p>Grand Royal Hotel, 14th Floor<br>125 Luxury Boulevard, Downtown<br>New York, NY 10001</p>
+          </div>
+        </div>
+        <div class="contact-card reveal reveal-d1">
+          <div class="cc-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>Breakfast: 6:30 AM – 10:30 AM<br>Lunch: 12:00 PM – 3:00 PM<br>Dinner: 6:30 PM – 11:30 PM</p>
+          </div>
+        </div>
+        <div class="contact-card reveal reveal-d2">
+          <div class="cc-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <h4>Reservations</h4>
+            <p>+1 (212) 555-0198<br>reservations&#64;royaltaste.com</p>
+          </div>
+        </div>
+        <div class="contact-card reveal reveal-d3">
+          <div class="cc-icon"><i class="fas fa-wifi"></i></div>
+          <div>
+            <h4>Digital Menu</h4>
+            <p>Scan QR code at your table<br>menu.royaltaste.com</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map + Form -->
+      <div class="form-col reveal">
+        <!-- Map placeholder -->
+        <div class="map-placeholder">
+          <img
+            src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=900&q=80"
+            alt="Hotel location"
+            loading="lazy"
+          />
+          <div class="map-overlay">
+            <div class="map-pin-wrap">
+              <i class="fas fa-location-dot"></i>
+              <span>Grand Royal Hotel</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reservation form -->
+        <div class="res-form">
+          <h3>Reserve Your Table</h3>
+          <div class="form-grid">
+            <div class="f-field">
+              <label>Full Name</label>
+              <input type="text" placeholder="Your full name" [(ngModel)]="form.name" />
+            </div>
+            <div class="f-field">
+              <label>Phone</label>
+              <input type="tel" placeholder="+1 (000) 000-0000" [(ngModel)]="form.phone" />
+            </div>
+            <div class="f-field">
+              <label>Date</label>
+              <input type="date" [(ngModel)]="form.date" />
+            </div>
+            <div class="f-field">
+              <label>Time</label>
+              <select [(ngModel)]="form.time">
+                <option *ngFor="let t of timeOptions">{{ t }}</option>
+              </select>
+            </div>
+            <div class="f-field">
+              <label>Guests</label>
+              <select [(ngModel)]="form.guests">
+                <option *ngFor="let g of guestOptions">{{ g }}</option>
+              </select>
+            </div>
+            <div class="f-field">
+              <label>Occasion</label>
+              <select [(ngModel)]="form.occasion">
+                <option *ngFor="let o of occasionOptions">{{ o }}</option>
+              </select>
+            </div>
+          </div>
+          <button class="reserve-btn" (click)="reserve()">
+            ✦ Confirm Reservation
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

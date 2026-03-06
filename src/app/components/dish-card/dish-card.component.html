@@ -1,0 +1,60 @@
+<div class="dish-card" (click)="openModal()">
+  <!-- Image -->
+  <div class="card-img">
+    <img [src]="dish.image" [alt]="dish.name" loading="lazy" />
+    <div class="img-overlay"></div>
+
+    <!-- Badges — text only, no emoji -->
+    <div class="badges">
+      <span *ngIf="dish.badge === 'chef'"  class="badge badge-chef">Chef's Choice</span>
+      <span *ngIf="dish.badge === 'hot'"   class="badge badge-hot">Popular</span>
+      <span *ngIf="dish.badge === 'new'"   class="badge badge-new">New</span>
+      <span *ngIf="dish.badge === 'vegan'" class="badge badge-vegan">
+        <i class="fas fa-spa"></i> Vegetarian
+      </span>
+    </div>
+
+    <!-- Favourite button -->
+    <button class="fav-btn" [class.active]="isFav" (click)="toggleFav($event)" title="Add to favourites">
+      <i [class]="isFav ? 'fas fa-heart' : 'far fa-heart'"></i>
+    </button>
+
+    <!-- Price -->
+    <div class="price-tag">${{ dish.price }}</div>
+  </div>
+
+  <!-- Body -->
+  <div class="card-body">
+    <div class="card-meta">
+      <span class="cat-label">{{ categoryName }}</span>
+      <div class="rating">
+        <i *ngFor="let filled of stars" [class]="filled ? 'fas fa-star' : 'far fa-star'"></i>
+        <span class="review-count">{{ dish.rating }} ({{ dish.reviews }})</span>
+      </div>
+    </div>
+
+    <h3 class="dish-name">{{ dish.name }}</h3>
+    <p class="dish-desc">{{ dish.desc }}</p>
+
+    <!-- Allergens — FA icons, no emoji -->
+    <div class="allergens" *ngIf="allergenData.length">
+      <div
+        *ngFor="let a of allergenData"
+        class="allergen-pill"
+        [title]="a.label"
+      >
+        <i [class]="a.icon"></i>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="card-footer">
+      <span class="calories">
+        <i class="fas fa-fire-flame-curved"></i> {{ dish.calories }} kcal
+      </span>
+      <button class="add-btn" (click)="addToCart($event)" title="Add to order">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<section id="categories" class="categories-section">
+  <div class="section-header reveal">
+    <div class="section-label">Explore Our Menu</div>
+    <h2 class="section-title">Curated <em>Categories</em></h2>
+    <p class="section-desc">From the freshest starters to decadent desserts — a journey through the finest flavours.</p>
+    <div class="section-divider">
+      <div class="divider-line"></div>
+      <span class="divider-diamond">✦</span>
+      <div class="divider-line right"></div>
+    </div>
+  </div>
+
+  <div class="cat-grid">
+    <div
+      *ngFor="let cat of categories; let i = index"
+      class="cat-card reveal"
+      [class.active]="cat.id === activeId"
+      [style.animationDelay.ms]="i * 60"
+      (click)="select(cat)"
+    >
+      <div class="cat-img-wrap">
+        <img [src]="cat.image" [alt]="cat.name" loading="lazy" />
+        <div class="cat-img-overlay"></div>
+      </div>
+      <div class="cat-body">
+        <h3 class="cat-name">{{ cat.name }}</h3>
+        <p class="cat-sub">{{ cat.subLabel }}</p>
+        <span class="cat-count">{{ cat.count || '50+' }} items</span>
+      </div>
+      <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+    </div>
+  </div>
+</section>

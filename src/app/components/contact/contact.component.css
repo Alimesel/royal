@@ -1,0 +1,60 @@
+.contact-section { padding:90px 40px; background:var(--navy-mid); }
+.contact-inner { max-width:1200px; margin:0 auto; }
+
+.contact-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:60px; margin-top:60px; align-items:start; }
+
+/* Info cards */
+.info-col { display:flex; flex-direction:column; gap:18px; }
+.contact-card {
+  display:flex; gap:18px; align-items:flex-start;
+  padding:22px; background:var(--navy-card); border:1px solid var(--border);
+  border-radius:var(--radius); transition:var(--transition);
+}
+.contact-card:hover { border-color:var(--gold); transform:translateX(6px); }
+.cc-icon {
+  width:46px; height:46px; border-radius:50%; background:rgba(201,168,76,0.1);
+  border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
+  color:var(--gold); font-size:1rem; flex-shrink:0;
+}
+.contact-card h4 { font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:2px; color:var(--gold); text-transform:uppercase; margin-bottom:6px; }
+.contact-card p  { font-size:0.92rem; color:var(--text-dim); line-height:1.6; }
+
+/* Map */
+.map-placeholder { border-radius:var(--radius); overflow:hidden; height:240px; position:relative; border:1px solid var(--border); }
+.map-placeholder img { width:100%; height:100%; object-fit:cover; }
+.map-overlay { position:absolute; inset:0; background:rgba(8,16,30,0.45); display:flex; align-items:center; justify-content:center; }
+.map-pin-wrap {
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  color:#fff; font-family:'Cinzel',serif; font-size:0.8rem; letter-spacing:2px;
+}
+.map-pin-wrap i { font-size:2.5rem; color:var(--gold); animation:float-gentle 2.5s ease-in-out infinite; }
+
+/* Form */
+.res-form { margin-top:20px; padding:28px; background:var(--navy-card); border:1px solid var(--border); border-radius:var(--radius); }
+.res-form h3 { font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:24px; }
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.f-field { display:flex; flex-direction:column; gap:7px; }
+.f-field label { font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:2px; color:var(--gold); text-transform:uppercase; }
+.f-field input,
+.f-field select {
+  padding:12px 14px; background:var(--navy-lighter); border:1px solid var(--border);
+  border-radius:var(--radius-sm); color:var(--text-main);
+  font-family:'Cormorant Garamond',serif; font-size:1rem;
+  transition:var(--transition); outline:none;
+}
+.f-field input:focus, .f-field select:focus { border-color:var(--gold); background:rgba(201,168,76,0.05); }
+.f-field select option { background:var(--navy-card); }
+.reserve-btn {
+  width:100%; margin-top:20px; padding:14px;
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+  color:var(--navy); border-radius:40px; font-family:'Cinzel',serif;
+  font-size:0.8rem; letter-spacing:3px; font-weight:700; transition:var(--transition);
+  text-transform:uppercase;
+}
+.reserve-btn:hover { transform:translateY(-2px); box-shadow:0 12px 36px rgba(201,168,76,0.4); }
+
+@media(max-width:900px) {
+  .contact-grid { grid-template-columns:1fr; gap:40px; }
+  .contact-section { padding:70px 20px; }
+  .form-grid { grid-template-columns:1fr; }
+}

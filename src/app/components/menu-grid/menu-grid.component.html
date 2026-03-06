@@ -1,0 +1,26 @@
+<section id="menu" class="menu-section">
+  <div class="menu-filters" *ngIf="dishes.length">
+    <button
+      *ngFor="let f of filters"
+      class="filter-btn"
+      [class.active]="activeFilter === f.id"
+      (click)="applyFilter(f.id)"
+    >{{ f.label }}</button>
+  </div>
+
+  <div class="menu-grid" *ngIf="dishes.length; else empty">
+    <app-dish-card
+      *ngFor="let dish of dishes; trackBy: trackById; let i = index"
+      [dish]="dish"
+      [style.animationDelay.ms]="i * 60"
+      style="animation: fade-up 0.5s ease both"
+    ></app-dish-card>
+  </div>
+
+  <ng-template #empty>
+    <div class="menu-empty">
+      <i class="fas fa-search"></i>
+      <p>No dishes found</p>
+    </div>
+  </ng-template>
+</section>

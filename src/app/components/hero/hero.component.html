@@ -1,0 +1,90 @@
+<section id="home" class="hero">
+  <!-- Background slideshow -->
+  <div class="hero-bg">
+    <div
+      *ngFor="let img of featuredImages; let i = index"
+      class="hero-bg-slide"
+      [class.active]="i === currentBg"
+      [style.backgroundImage]="'url(' + img + ')'"
+    ></div>
+    <div class="hero-overlay"></div>
+  </div>
+
+  <!-- Particles -->
+  <div class="hero-particles">
+    <div *ngFor="let p of [].constructor(30); let i = index"
+         class="particle"
+         [style.left.%]="(i * 37 + 13) % 100"
+         [style.animationDelay.s]="(i * 0.4) % 10"
+         [style.animationDuration.s]="8 + (i % 6)">
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <!-- Text Block -->
+    <div class="hero-text">
+      <div class="hero-badge">SINCE 1998 · MICHELIN 3 STARS</div>
+      <h1 class="hero-title">
+        Where Every Meal<br>
+        Becomes a <em>Masterpiece</em>
+      </h1>
+      <p class="hero-subtitle">
+        Experience culinary excellence at the Grand Royal Hotel.
+        Award-winning cuisine crafted by world-class chefs using the finest seasonal ingredients.
+      </p>
+      <div class="hero-cta">
+        <button class="btn-primary" (click)="scrollToMenu()">Explore Menu</button>
+        <button class="btn-outline" (click)="scrollToContact()">Reserve a Table</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">120+</span>
+          <div class="stat-label">Signature Dishes</div>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <span class="stat-num">4.9★</span>
+          <div class="stat-label">Guest Rating</div>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <span class="stat-num">3</span>
+          <div class="stat-label">Michelin Stars</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual showcase -->
+    <div class="hero-visual">
+      <div class="showcase-wrap">
+        <!-- Center hero dish -->
+        <div class="showcase-center">
+          <img
+            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=480&h=480&q=80"
+            alt="Luxury dining"
+            class="showcase-main-img"
+          />
+          <div class="showcase-glow"></div>
+        </div>
+        <!-- Floating dish cards -->
+        <div
+          *ngFor="let d of floatingDishes; let i = index"
+          class="float-card"
+          [class]="'float-pos-' + i"
+        >
+          <img [src]="d.image" [alt]="d.label" />
+          <span>{{ d.label }}</span>
+        </div>
+        <!-- Orbit rings -->
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="scroll-hint">
+    <span>Scroll to Explore</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>

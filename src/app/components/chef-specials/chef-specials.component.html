@@ -1,0 +1,45 @@
+<section id="chef-specials" class="specials-section">
+  <div class="specials-inner">
+    <div class="section-header reveal">
+      <div class="section-label">Premium Selection</div>
+      <h2 class="section-title">Chef's <em>Specials</em></h2>
+      <p class="section-desc">Extraordinary creations by Executive Chef Marcus Laurent — exclusive, seasonal, unforgettable.</p>
+      <div class="section-divider">
+        <div class="divider-line"></div>
+        <span class="divider-diamond">✦</span>
+        <div class="divider-line right"></div>
+      </div>
+    </div>
+
+    <div class="specials-grid">
+      <div
+        *ngFor="let s of specials; let i = index"
+        class="special-card reveal"
+        [class]="'special-card--' + (i % 2 === 0 ? 'left' : 'right')"
+      >
+        <!-- Image side -->
+        <div class="special-img">
+          <img [src]="s.image" [alt]="s.name" loading="lazy" />
+          <div class="special-img-overlay"></div>
+          <div class="special-ribbon">✦ CHEF SPECIAL ✦</div>
+          <div class="special-price">${{ s.price }}<span>per person</span></div>
+        </div>
+
+        <!-- Content side -->
+        <div class="special-content">
+          <div class="special-tag">
+            <i class="fas fa-award"></i> Executive Chef's Creation
+          </div>
+          <h3 class="special-name">{{ s.name }}</h3>
+          <p class="special-desc">{{ s.desc }}</p>
+          <div class="special-ingredients">
+            <span *ngFor="let ing of s.ingredients" class="ing-tag">{{ ing }}</span>
+          </div>
+          <button class="special-btn" (click)="addToCart(s)">
+            <i class="fas fa-plus"></i> Add to Order — ${{ s.price }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

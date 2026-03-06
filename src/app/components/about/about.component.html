@@ -1,0 +1,71 @@
+<section id="about" class="about-section">
+  <div class="about-inner">
+    <div class="about-text">
+      <div class="reveal">
+        <div class="section-label" style="justify-content:flex-start">
+          <span>Our Story</span>
+        </div>
+        <h2 class="section-title">A Legacy of <em>Excellence</em></h2>
+      </div>
+      <p class="story reveal reveal-d1">
+        Founded in <strong>1998</strong>, Royal Taste has been at the forefront of luxury dining,
+        nestled within the iconic Grand Royal Hotel. Our kitchen is a stage where passion meets precision,
+        and every dish is a testament to decades of culinary mastery.
+      </p>
+      <p class="story reveal reveal-d2">
+        We source ingredients from <strong>certified organic farms</strong> and the world's most prestigious
+        suppliers — Wagyu from Japan, truffles from Périgord, saffron from Kashmir.
+        Every plate tells a story of origin, craft, and devotion.
+      </p>
+      <p class="story reveal reveal-d3">
+        Our team of <strong>32 culinary artists</strong> bring diverse expertise, united by one philosophy:
+        dining should nourish not just the body, but the soul.
+      </p>
+
+      <!-- Chef profile -->
+      <div class="chef-card reveal">
+        <div class="chef-avatar">
+          <img
+            src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=120&h=120&q=80"
+            alt="Chef Marcus Laurent"
+          />
+        </div>
+        <div class="chef-info">
+          <div class="chef-title">Executive Chef</div>
+          <h4>Marcus Laurent</h4>
+          <p>Le Cordon Bleu Paris · Formerly of Noma & The Fat Duck · 3 Michelin stars</p>
+        </div>
+      </div>
+
+      <div class="awards reveal">
+        <div class="award-item">
+          <i class="fas fa-star"></i>
+          <span>3 Michelin Stars</span>
+        </div>
+        <div class="award-item">
+          <i class="fas fa-trophy"></i>
+          <span>World's Best 2023</span>
+        </div>
+        <div class="award-item">
+          <i class="fas fa-leaf"></i>
+          <span>Green Star</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-gallery reveal">
+      <div class="gallery-img gallery-main">
+        <img [src]="galleryImages[0].src" [alt]="galleryImages[0].alt" loading="lazy" />
+      </div>
+      <div class="gallery-img gallery-sm-1">
+        <img [src]="galleryImages[1].src" [alt]="galleryImages[1].alt" loading="lazy" />
+      </div>
+      <div class="gallery-img gallery-sm-2">
+        <img [src]="galleryImages[2].src" [alt]="galleryImages[2].alt" loading="lazy" />
+      </div>
+      <div class="gallery-img gallery-sm-3">
+        <img [src]="galleryImages[3].src" [alt]="galleryImages[3].alt" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>

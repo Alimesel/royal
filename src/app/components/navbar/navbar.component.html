@@ -1,0 +1,50 @@
+<nav [class.scrolled]="scrolled">
+  <a class="nav-logo" (click)="scrollTo('home')">
+    <span class="nav-logo-main">✦ ROYAL TASTE</span>
+    <span class="nav-logo-sub">Luxury Hotel Restaurant</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a (click)="scrollTo('home')">Home</a></li>
+    <li><a (click)="scrollTo('categories')">Menu</a></li>
+    <li><a (click)="scrollTo('chef-specials')">Chef's Specials</a></li>
+    <li><a (click)="scrollTo('about')">About</a></li>
+    <li><a (click)="scrollTo('contact')">Contact</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input
+        type="text"
+        placeholder="Search dishes..."
+        [(ngModel)]="searchQuery"
+        (input)="onSearch()"
+      />
+    </div>
+
+    <button class="nav-btn" (click)="toggleTheme()" title="Toggle theme">
+      <i [class]="isDark ? 'fas fa-sun' : 'fas fa-moon'"></i>
+    </button>
+
+    <button class="nav-btn" (click)="toggleCart()" title="Cart">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="cart-badge" [class.show]="cartCount > 0">{{ cartCount }}</span>
+    </button>
+
+    <div class="burger" (click)="toggleMobile()">
+      <span [class.open-1]="mobileOpen"></span>
+      <span [class.open-2]="mobileOpen"></span>
+      <span [class.open-3]="mobileOpen"></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="mobile-nav" [class.open]="mobileOpen">
+  <a (click)="scrollTo('home')">Home</a>
+  <a (click)="scrollTo('categories')">Menu</a>
+  <a (click)="scrollTo('chef-specials')">Chef's Specials</a>
+  <a (click)="scrollTo('about')">About</a>
+  <a (click)="scrollTo('contact')">Contact</a>
+</div>
